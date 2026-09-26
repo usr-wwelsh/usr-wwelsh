@@ -30,9 +30,10 @@
 
 
 <!-- AUTO_REPO_LIST:START -->
-### All Public Repositories (45 total)
+### All Public Repositories (46 total)
 | Repository | Created | ⭐ | 📊 Clones (14d) | 👥 Visitors (14d) |
 |:-----------|:-------:|---:|----------------:|------------------:|
+| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="16" height="16"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" width="16" height="16"> [docs](https://github.com/usr-wwelsh/docs)<br><sub>Docs for all my repos, built with botdocs</sub> | 2026-09-25 | 0 | 0 | 0 |
 | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg" width="16" height="16"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="16" height="16"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" width="16" height="16"> [Answerable](https://github.com/usr-wwelsh/Answerable)<br><sub>Submission for the Venture 313 Buildathon</sub> | 2026-09-18 | 0 | 355 | 6 |
 | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="16" height="16"> [digest-finetune](https://github.com/usr-wwelsh/digest-finetune)<br><sub>SFT + GRPO fine-tune of SmolLM2-135M for git-digest, offline on CPU</sub> | 2026-08-23 | 0 | 11 | 0 |
 | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" width="16" height="16"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg" width="16" height="16"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" width="16" height="16"> [go-course](https://github.com/usr-wwelsh/go-course)<br><sub>Learn Go by writing it. Ten hands-on chapters, browser-based, graded live by a Go interpreter compiled to WebAssembly. No signup, no server, no cloud.</sub> | 2026-08-19 | 0 | 5 | 1 |
@@ -79,5 +80,5 @@
 | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="16" height="16"> [ShoobyPy](https://github.com/usr-wwelsh/ShoobyPy)<br><sub>Shooby Python Scat Singer</sub> | 2025-06-13 | 0 | 6 | 0 |
 | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="16" height="16"> [path-of-python](https://github.com/usr-wwelsh/path-of-python)<br><sub>Assets from https://opengameart.org/content/dungeon-crawl-32x32-tiles</sub> | 2025-06-10 | 1 | 9 | 1 |
 
-*updated: 2026-09-25 03:59 UTC — sorted by creation date, newest first*
+*updated: 2026-09-26 04:04 UTC — sorted by creation date, newest first*
 <!-- AUTO_REPO_LIST:END -->
