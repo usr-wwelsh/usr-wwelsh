@@ -161,7 +161,7 @@ def generate_repo_list(stats):
             name = f'**{name}**'
         description = repo['description'].replace('|', '\\|').strip()
         before = stats.get('previous', {}).get(repo['name'], {})
-        stars = (str(repo['stars']) if repo['stars'] else '') + trend_marker(repo['stars'], before.get('stars'))
+        stars = (str(repo['stars']) if repo['stars'] else '–') + trend_marker(repo['stars'], before.get('stars'))
         clones = f'{repo["clones"]:,}' + trend_marker(repo['clones'], before.get('clones'))
         visitors = f'{repo["visitors"]:,}' + trend_marker(repo['visitors'], before.get('visitors'))
         lines.append(

@@ -13,30 +13,30 @@
 
 | Project | Description | Language | Stars | Clones (14d) | Visitors (14d) | Created |
 |:--------|:------------|:---------|------:|-------------:|---------------:|:-------:|
-| [amazin-man](https://github.com/usr-wwelsh/amazin-man) | Modern Paperboy for an arcade machine. Built with LÖVE. | Lua |  | 63 | 1 | 2026-10-27 |
-| [Answerable](https://github.com/usr-wwelsh/Answerable) | Submission for the Venture 313 Buildathon | Go |  | 53 | 0 | 2026-09-18 |
-| [digest-finetune](https://github.com/usr-wwelsh/digest-finetune) | SFT + GRPO fine-tune of SmolLM2-135M for git-digest, offline on CPU | Python |  | 36 | 0 | 2026-08-23 |
-| [go-course](https://github.com/usr-wwelsh/go-course) | Learn Go by writing it. Ten hands-on chapters, browser-based, graded live by a Go interpreter compiled to WebAssembly. No signup, no server, no cloud. | TypeScript |  | 49 | 0 | 2026-08-19 |
-| [fanoutd](https://github.com/usr-wwelsh/fanoutd) | Self-hosted multi-agent orchestrator — kanban board and CLI in two Go binaries, embedded UI, SQLite state, OpenRouter models. Breaks an idea into subtasks that run in parallel with file ownership enforced. | Go |  | 68 | 0 | 2026-07-29 |
+| [amazin-man](https://github.com/usr-wwelsh/amazin-man) | Modern Paperboy for an arcade machine. Built with LÖVE. | Lua | – | 63 | 1 | 2026-10-27 |
+| [Answerable](https://github.com/usr-wwelsh/Answerable) | Submission for the Venture 313 Buildathon | Go | – | 53 | 0 | 2026-09-18 |
+| [digest-finetune](https://github.com/usr-wwelsh/digest-finetune) | SFT + GRPO fine-tune of SmolLM2-135M for git-digest, offline on CPU | Python | – | 36 | 0 | 2026-08-23 |
+| [go-course](https://github.com/usr-wwelsh/go-course) | Learn Go by writing it. Ten hands-on chapters, browser-based, graded live by a Go interpreter compiled to WebAssembly. No signup, no server, no cloud. | TypeScript | – | 49 | 0 | 2026-08-19 |
+| [fanoutd](https://github.com/usr-wwelsh/fanoutd) | Self-hosted multi-agent orchestrator — kanban board and CLI in two Go binaries, embedded UI, SQLite state, OpenRouter models. Breaks an idea into subtasks that run in parallel with file ownership enforced. | Go | – | 68 | 0 | 2026-07-29 |
 | **[Blopple](https://github.com/usr-wwelsh/Blopple)** | No-code Doom-style game maker: build maps, textures, and music in the browser, ship a self-contained ~1MB playable HTML. | TypeScript | 2 | 42 | 1 | 2026-07-12 |
-| [git-digest](https://github.com/usr-wwelsh/git-digest) | Turn your git commits into a dev journal. AI-written by default, or fully deterministic and offline with -static. Single binary, cloud-optional. | Go |  | 56 | 1 | 2026-06-29 |
-| [turbolab](https://github.com/usr-wwelsh/turbolab) | Minimal local AI gateway with web UI, HuggingFace search, TurboQuant, and OpenAI API. Single binary, no cloud, no API keys. | Go |  | 37 | 0 | 2026-04-18 |
+| [git-digest](https://github.com/usr-wwelsh/git-digest) | Turn your git commits into a dev journal. AI-written by default, or fully deterministic and offline with -static. Single binary, cloud-optional. | Go | – | 56 | 1 | 2026-06-29 |
+| [turbolab](https://github.com/usr-wwelsh/turbolab) | Minimal local AI gateway with web UI, HuggingFace search, TurboQuant, and OpenAI API. Single binary, no cloud, no API keys. | Go | – | 37 | 0 | 2026-04-18 |
 | **[omniMux](https://github.com/usr-wwelsh/omniMux)** | Self-hosted music server with a Spotify-style PWA — search YouTube, save tracks to your own library, and stream from anywhere. AutoDJ crossfades, visualizers, multi-device sync. Navidrome + FastAPI + SvelteKit. | Svelte | 2 | 73 | 13 | 2026-04-01 |
-| [vitalSVG](https://github.com/usr-wwelsh/vitalSVG) | Self hosted svg builder for health checks | Go |  | 41 | 0 | 2026-03-26 |
+| [vitalSVG](https://github.com/usr-wwelsh/vitalSVG) | Self hosted svg builder for health checks | Go | – | 41 | 0 | 2026-03-26 |
 | **[cde-wallpaper](https://github.com/usr-wwelsh/cde-wallpaper)** | Plasma KDE wallpaper picker that supports CDE's original xbm and xpm images. | Rust | 2 | 50 | 6 | 2026-03-10 |
-| [jobSeeker](https://github.com/usr-wwelsh/jobSeeker) | Finds jobs and generates prompts that reference their job and your github projects for cover letters. | Python |  | 36 | 5 | 2026-03-03 |
-| [Dependadocs](https://github.com/usr-wwelsh/Dependadocs) | Dependabot for your docs | Python |  | 69 | 0 | 2026-02-28 |
-| [git-gallery](https://github.com/usr-wwelsh/git-gallery) | Walk through your github in a virtual world | JavaScript |  | 39 | 0 | 2026-02-22 |
-| [dominion-tracker](https://github.com/usr-wwelsh/dominion-tracker) | Tracks our dominion games... | JavaScript |  | 52 | 0 | 2026-02-18 |
+| [jobSeeker](https://github.com/usr-wwelsh/jobSeeker) | Finds jobs and generates prompts that reference their job and your github projects for cover letters. | Python | – | 36 | 5 | 2026-03-03 |
+| [Dependadocs](https://github.com/usr-wwelsh/Dependadocs) | Dependabot for your docs | Python | – | 69 | 0 | 2026-02-28 |
+| [git-gallery](https://github.com/usr-wwelsh/git-gallery) | Walk through your github in a virtual world | JavaScript | – | 39 | 0 | 2026-02-22 |
+| [dominion-tracker](https://github.com/usr-wwelsh/dominion-tracker) | Tracks our dominion games... | JavaScript | – | 52 | 0 | 2026-02-18 |
 | [botdocs](https://github.com/usr-wwelsh/botdocs) | Turn markdown docs into a static site with an offline, client-side semantic search chatbot | TypeScript | 1 | 73 | 0 | 2026-02-13 |
-| [karaoke-maker](https://github.com/usr-wwelsh/karaoke-maker) | Make karaoke videos locally from mp3 using tiny AI. | Python |  | 37 | 18 | 2026-01-29 |
+| [karaoke-maker](https://github.com/usr-wwelsh/karaoke-maker) | Make karaoke videos locally from mp3 using tiny AI. | Python | – | 37 | 18 | 2026-01-29 |
 | [init-launcher](https://github.com/usr-wwelsh/init-launcher) | Stripped down Android home launcher | Kotlin | 1 | 38 | 10 | 2025-12-31 |
-| [zweek-lisp](https://github.com/usr-wwelsh/zweek-lisp) | native ai code language... | C++ |  | 35 | 0 | 2025-11-26 |
+| [zweek-lisp](https://github.com/usr-wwelsh/zweek-lisp) | native ai code language... | C++ | – | 35 | 0 | 2025-11-26 |
 | [Research-Digest](https://github.com/usr-wwelsh/Research-Digest) | Auto-curated arXiv paper digest with AI summaries and mobile-optimized feed. No API keys, no tracking, no cloud | JavaScript | 1 | 324 | 1 | 2025-11-05 |
-| [emotional-contamination](https://github.com/usr-wwelsh/emotional-contamination) | Your tone doesn’t just affect mood—it breaks their mind. | HTML |  | 35 | 0 | 2025-11-03 |
+| [emotional-contamination](https://github.com/usr-wwelsh/emotional-contamination) | Your tone doesn’t just affect mood—it breaks their mind. | HTML | – | 35 | 0 | 2025-11-03 |
 | **[Mood-Detector](https://github.com/usr-wwelsh/Mood-Detector)** | Open-source music mood analysis API. The free, local alternative to proprietary music intelligence services. Analyze audio for mood, tempo, energy,  and key. no API keys, no cloud. ( currently used in git.wwel.sh/omnimux ) | Python | 10 | 184 | 23 | 2025-10-30 |
-| [socialChat](https://github.com/usr-wwelsh/socialChat) | A decentralized self-hostable anti-algorithm social media platform with real-time chatroom functionality. | JavaScript |  | 56 | 2 | 2025-10-17 |
+| [socialChat](https://github.com/usr-wwelsh/socialChat) | A decentralized self-hostable anti-algorithm social media platform with real-time chatroom functionality. | JavaScript | – | 56 | 2 | 2025-10-17 |
 | [path-of-python](https://github.com/usr-wwelsh/path-of-python) | Assets from https://opengameart.org/content/dungeon-crawl-32x32-tiles | Python | 1 | 44 | 1 | 2025-06-10 |
 
-<sub>Updated 2026-11-19 23:35 UTC. Documentation for every project: [docs.wwel.sh](https://docs.wwel.sh).</sub>
+<sub>Updated 2026-11-19 23:42 UTC. Documentation for every project: [docs.wwel.sh](https://docs.wwel.sh).</sub>
 <!-- AUTO_REPO_LIST:END -->
