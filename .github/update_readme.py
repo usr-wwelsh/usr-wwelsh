@@ -151,8 +151,8 @@ def generate_repo_list(stats):
         '<!-- AUTO_REPO_LIST:START -->',
         '## Projects',
         '',
-        '| Project | Description | Language | Created | Stars | Clones (14d) | Visitors (14d) |',
-        '|:--------|:------------|:---------|:-------:|------:|-------------:|---------------:|',
+        '| Project | Description | Language | Stars | Clones (14d) | Visitors (14d) | Created |',
+        '|:--------|:------------|:---------|------:|-------------:|---------------:|:-------:|',
     ]
 
     for repo in sorted_repos:
@@ -166,7 +166,7 @@ def generate_repo_list(stats):
         visitors = f'{repo["visitors"]:,}' + trend_marker(repo['visitors'], before.get('visitors'))
         lines.append(
             f'| {name} | {description} | {repo["language"]} | '
-            f'{repo["created_at"]} | {stars} | {clones} | {visitors} |'
+            f'{stars} | {clones} | {visitors} | {repo["created_at"]} |'
         )
 
     lines.append('')
