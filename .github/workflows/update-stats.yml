@@ -33,7 +33,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.STATS_TOKEN }}
           GITHUB_USERNAME: ${{ github.repository_owner }}
         run: |
-          python update_readme.py $GITHUB_USERNAME $GITHUB_TOKEN README.md
+          python .github/update_readme.py $GITHUB_USERNAME $GITHUB_TOKEN README.md
 
       - name: Commit and push if changed
         env:
@@ -41,7 +41,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add README.md
+          git add README.md .github/snapshot
 
           # Check if there are changes
           if ! git diff --quiet --staged; then

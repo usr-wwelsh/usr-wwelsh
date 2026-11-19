@@ -5,43 +5,64 @@ Uses HTML comments as markers to avoid breaking existing content.
 """
 import requests
 import sys
+import json
 import os
 from datetime import datetime
 
 
-# Repos to hide from the public README list (e.g. one-off demos)
-EXCLUDE_REPOS = {'refundesk'}
-
-_DEVICON = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons'
-
-LANGUAGE_ICONS = {
-    'Python':     f'{_DEVICON}/python/python-original.svg',
-    'JavaScript': f'{_DEVICON}/javascript/javascript-original.svg',
-    'TypeScript': f'{_DEVICON}/typescript/typescript-original.svg',
-    'Rust':       f'{_DEVICON}/rust/rust-original.svg',
-    'Kotlin':     f'{_DEVICON}/kotlin/kotlin-original.svg',
-    'C++':        f'{_DEVICON}/cplusplus/cplusplus-original.svg',
-    'C':          f'{_DEVICON}/c/c-original.svg',
-    'Go':         f'{_DEVICON}/go/go-original.svg',
-    'HTML':       f'{_DEVICON}/html5/html5-original.svg',
-    'CSS':        f'{_DEVICON}/css3/css3-original.svg',
-    'Shell':      f'{_DEVICON}/bash/bash-original.svg',
-    'Lua':        f'{_DEVICON}/lua/lua-original.svg',
-    'Java':       f'{_DEVICON}/java/java-original.svg',
-    'Dart':       f'{_DEVICON}/dart/dart-original.svg',
-    'Zig':        f'{_DEVICON}/zig/zig-original.svg',
-    'Vue':        f'{_DEVICON}/vuejs/vuejs-original.svg',
-    'Svelte':     f'{_DEVICON}/svelte/svelte-original.svg',
-    'GDScript':   f'{_DEVICON}/godot/godot-original.svg',
+# Mirrors docs/repo-excludes.json; hidden from the table, still counted in totals
+EXCLUDE_REPOS = {
+    'usr-wwelsh',
+    'docs',
+    'zweek-code',
+    'refundesk',
+    '1socialChat-extension',
+    'block_current',
+    'Change-Logger',
+    'cli-game',
+    'CodeCraft',
+    'cZig',
+    'DiaryML',
+    'FFmpeg-FilterLab',
+    'Godot-Arena',
+    'Itch.io-Console-Mode',
+    'miniPaaS',
+    'moodTapes',
+    'neural-music',
+    'Ollama-Conversation-Simulator',
+    'OllamaCoder',
+    'Project-Viewer',
+    'railway-android',
+    'ShoobyPy',
+    'Side-Hustle-Finder',
+    'socialChatAndroid',
 }
 
-def language_badges(languages):
-    """Return img tags for up to 3 known languages, in order of usage"""
-    badges = []
-    for lang in languages[:3]:
-        if lang in LANGUAGE_ICONS:
-            badges.append(f'<img src="{LANGUAGE_ICONS[lang]}" width="16" height="16">')
-    return ' '.join(badges)
+SNAPSHOT_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'snapshot', 'stats.json')
+
+
+def trend_marker(now, before):
+    if before is None or now == before:
+        return ''
+    name = 'up' if now > before else 'down'
+    return f' <img src=".github/assets/{name}.svg" width="10" alt="{name}">'
+
+
+def load_snapshot(path):
+    try:
+        with open(path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return {}
+
+
+def roll_snapshot(snapshot, today, repo_stats):
+    current = snapshot.get('current', {})
+    previous = snapshot.get('previous', {})
+    if current.get('date') and current['date'] != today:
+        previous = current
+    repos = {r['name']: {'stars': r['stars'], 'clones': r['clones'], 'visitors': r['visitors']} for r in repo_stats}
+    return {'current': {'date': today, 'repos': repos}, 'previous': previous}
 
 
 def get_traffic_data(username, repo_name, traffic_type, headers):
@@ -73,22 +94,17 @@ def get_all_time_stats(username, token):
     repo_stats = []
 
     for repo in repos:
-        if repo['fork'] or repo['private'] or repo['name'] in EXCLUDE_REPOS:
+        if repo['fork'] or repo['private']:
             continue
 
         repo_name = repo['name']
         created_at = repo['created_at'][:10]  # YYYY-MM-DD
         description = repo.get('description', '') or ''
         stars = repo['stargazers_count']
-        language = repo.get('language', '') or ''  # fallback if languages API fails
+        language = repo.get('language') or ''
 
         clone_data = get_traffic_data(username, repo_name, 'clones', headers)
         view_data = get_traffic_data(username, repo_name, 'views', headers)
-        lang_response = requests.get(
-            f'https://api.github.com/repos/{username}/{repo_name}/languages',
-            headers=headers
-        )
-        languages = list(lang_response.json().keys()) if lang_response.status_code == 200 else [language]
 
         clones = clone_data.get('count', 0)
         unique_views = view_data.get('uniques', 0)
@@ -96,15 +112,18 @@ def get_all_time_stats(username, token):
         recent_clones += clones
         recent_visitors += unique_views
 
+        if repo_name in EXCLUDE_REPOS:
+            continue
+
         repo_stats.append({
             'name': repo_name,
             'url': repo['html_url'],
             'created_at': created_at,
             'description': description,
             'stars': stars,
+            'language': language,
             'clones': clones,
-            'visitors': unique_views,
-            'languages': languages
+            'visitors': unique_views
         })
 
     return {
@@ -119,35 +138,39 @@ def generate_stats_section(stats):
     """Generate the stats kbd section"""
     return (
         f'<!-- GITHUB_STATS:START -->\n'
-        f'`📡 Stats (last 14d):` `📊 {stats["recent_clones"]:,} clones` `👥 {stats["recent_visitors"]:,} visitors`\n'
+        f'<sub>Last 14 days: <b>{stats["recent_clones"]:,}</b> clones · <b>{stats["recent_visitors"]:,}</b> visitors</sub>\n'
         f'<!-- GITHUB_STATS:END -->'
     )
 
 
 def generate_repo_list(stats):
-    """Generate the auto repo list table sorted by creation date, newest first"""
-    repo_stats = stats.get('repo_stats', [])
-    sorted_repos = sorted(repo_stats, key=lambda x: x['created_at'], reverse=True)
-    total = len(sorted_repos)
+    """Generate the repo table sorted by creation date, newest first"""
+    sorted_repos = sorted(stats.get('repo_stats', []), key=lambda x: x['created_at'], reverse=True)
 
     lines = [
         '<!-- AUTO_REPO_LIST:START -->',
-        f'### All Public Repositories ({total} total)',
-        '| Repository | Created | ⭐ | 📊 Clones (14d) | 👥 Visitors (14d) |',
-        '|:-----------|:-------:|---:|----------------:|------------------:|',
+        '## Projects',
+        '',
+        '| Project | Description | Language | Created | Stars | Clones (14d) | Visitors (14d) |',
+        '|:--------|:------------|:---------|:-------:|------:|-------------:|---------------:|',
     ]
 
     for repo in sorted_repos:
-        badges = language_badges(repo['languages'])
-        name_cell = f'{badges} [{repo["name"]}]({repo["url"]})' if badges else f'[{repo["name"]}]({repo["url"]})'
-        if repo['description']:
-            name_cell += f'<br><sub>{repo["description"]}</sub>'
+        name = f'[{repo["name"]}]({repo["url"]})'
+        if repo['stars'] >= 2:
+            name = f'**{name}**'
+        description = repo['description'].replace('|', '\\|').strip()
+        before = stats.get('previous', {}).get(repo['name'], {})
+        stars = (str(repo['stars']) if repo['stars'] else '') + trend_marker(repo['stars'], before.get('stars'))
+        clones = f'{repo["clones"]:,}' + trend_marker(repo['clones'], before.get('clones'))
+        visitors = f'{repo["visitors"]:,}' + trend_marker(repo['visitors'], before.get('visitors'))
         lines.append(
-            f'| {name_cell} | {repo["created_at"]} | {repo["stars"]} | {repo["clones"]:,} | {repo["visitors"]:,} |'
+            f'| {name} | {description} | {repo["language"]} | '
+            f'{repo["created_at"]} | {stars} | {clones} | {visitors} |'
         )
 
     lines.append('')
-    lines.append(f'*updated: {stats["last_updated"]} — sorted by creation date, newest first*')
+    lines.append(f'<sub>Updated {stats["last_updated"]}. Documentation for every project: [docs.wwel.sh](https://docs.wwel.sh).</sub>')
     lines.append('<!-- AUTO_REPO_LIST:END -->')
 
     return '\n'.join(lines)
@@ -203,14 +226,12 @@ def write_github_summary(stats):
     repo_stats = stats.get('repo_stats', [])
     top_repos = sorted(repo_stats, key=lambda x: x['clones'], reverse=True)[:10]
 
-    summary = "# 🔥 Top 10 Most Popular Repositories (Last 2 Weeks)\n\n"
+    summary = "# Top 10 Repositories by Clones (Last 14 Days)\n\n"
     summary += "| Rank | Repository | Clones | Unique Visitors |\n"
     summary += "|:----:|:-----------|-------:|----------------:|\n"
 
-    medals = ['🥇', '🥈', '🥉']
     for i, repo in enumerate(top_repos, 1):
-        rank = medals[i-1] if i <= 3 else str(i)
-        summary += f"| {rank} | **[{repo['name']}]({repo['url']})** | {repo['clones']:,} | {repo['visitors']:,} |\n"
+        summary += f"| {i} | **[{repo['name']}]({repo['url']})** | {repo['clones']:,} | {repo['visitors']:,} |\n"
 
     summary += f"\n---\n"
     summary += f"**Total across all repos:** {stats['recent_clones']:,} clones, {stats['recent_visitors']:,} unique visitors\n"
@@ -242,6 +263,12 @@ def main():
     stats = get_all_time_stats(username, token)
 
     if stats:
+        snapshot_path = SNAPSHOT_FILE
+        snapshot = roll_snapshot(load_snapshot(snapshot_path), datetime.utcnow().strftime('%Y-%m-%d'), stats['repo_stats'])
+        stats['previous'] = snapshot['previous'].get('repos', {})
+        os.makedirs(os.path.dirname(snapshot_path), exist_ok=True)
+        with open(snapshot_path, 'w', encoding='utf-8') as f:
+            json.dump(snapshot, f, indent=2, sort_keys=True)
         update_readme(stats, readme_path)
         write_github_summary(stats)
     else:

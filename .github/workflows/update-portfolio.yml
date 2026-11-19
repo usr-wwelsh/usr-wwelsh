@@ -40,7 +40,7 @@ jobs:
           GITHUB_USERNAME: ${{ github.repository_owner }}
         run: |
           cd stats-repo
-          python update_portfolio_stats.py $GITHUB_USERNAME $GITHUB_TOKEN ../portfolio/index.html
+          python .github/update_portfolio_stats.py $GITHUB_USERNAME $GITHUB_TOKEN ../portfolio/index.html
 
       - name: Commit and push portfolio changes
         run: |
