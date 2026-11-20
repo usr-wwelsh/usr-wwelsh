@@ -149,7 +149,7 @@ def generate_repo_list(stats):
 
     lines = [
         '<!-- AUTO_REPO_LIST:START -->',
-        '## Projects',
+        '## Selected Projects',
         '',
         '| Project | Description | Language | Stars | Clones (14d) | Visitors (14d) | Created |',
         '|:--------|:------------|:---------|------:|-------------:|---------------:|:-------:|',
