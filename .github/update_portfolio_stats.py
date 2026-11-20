@@ -44,9 +44,11 @@ def get_all_repo_stats(username, token):
 
     repos = response.json()
     repo_stats = []
+    hidden_clones = 0
+    hidden_unique_cloners = 0
 
     for repo in repos:
-        if repo['fork'] or repo['private'] or repo['name'] in EXCLUDE_REPOS:
+        if repo['fork'] or repo['private']:
             continue
 
         repo_name = repo['name']
@@ -59,6 +61,11 @@ def get_all_repo_stats(username, token):
         clones = clone_data.get('count', 0)
         unique_cloners = clone_data.get('uniques', 0)
         unique_views = view_data.get('uniques', 0)
+
+        if repo_name in EXCLUDE_REPOS:
+            hidden_clones += clones
+            hidden_unique_cloners += unique_cloners
+            continue
 
         # Get description
         description = repo.get('description', '') or ''
@@ -80,6 +87,8 @@ def get_all_repo_stats(username, token):
 
     return {
         'repo_stats': repo_stats,
+        'hidden_clones': hidden_clones,
+        'hidden_unique_cloners': hidden_unique_cloners,
         'public_repo_count': public_repo_count,
         'last_updated': est_time.strftime('%Y-%m-%d %H:%M EST')
     }
@@ -87,8 +96,8 @@ def get_all_repo_stats(username, token):
 def generate_clone_total_snippet(stats):
     """Generate the inline clone total snippet"""
     repo_stats = stats.get('repo_stats', [])
-    total_clones = sum(r['clones'] for r in repo_stats)
-    total_unique = sum(r['unique_cloners'] for r in repo_stats)
+    total_clones = sum(r['clones'] for r in repo_stats) + stats.get('hidden_clones', 0)
+    total_unique = sum(r['unique_cloners'] for r in repo_stats) + stats.get('hidden_unique_cloners', 0)
     return (
         f'<!-- CLONE_TOTAL:START -->'
         f'<p><small><i>{total_clones:,} clones / {total_unique:,} unique cloners (last 2 weeks)</i></small></p>'
@@ -119,8 +128,8 @@ def generate_html_table(stats):
 def write_stats_json(stats, output_dir):
     repo_stats = stats.get('repo_stats', [])
     top_clones = sorted(repo_stats, key=lambda x: x['clones'], reverse=True)[:10]
-    total_clones = sum(r['clones'] for r in repo_stats)
-    total_unique = sum(r['unique_cloners'] for r in repo_stats)
+    total_clones = sum(r['clones'] for r in repo_stats) + stats.get('hidden_clones', 0)
+    total_unique = sum(r['unique_cloners'] for r in repo_stats) + stats.get('hidden_unique_cloners', 0)
 
     data = {
         'last_updated': stats['last_updated'],
