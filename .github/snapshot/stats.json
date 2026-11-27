@@ -1,5 +1,130 @@
 {
   "current": {
+    "date": "2026-11-27",
+    "repos": {
+      "Answerable": {
+        "clones": 51,
+        "stars": 0,
+        "visitors": 0
+      },
+      "Blopple": {
+        "clones": 40,
+        "stars": 2,
+        "visitors": 0
+      },
+      "Dependadocs": {
+        "clones": 76,
+        "stars": 0,
+        "visitors": 0
+      },
+      "Mood-Detector": {
+        "clones": 145,
+        "stars": 11,
+        "visitors": 31
+      },
+      "Research-Digest": {
+        "clones": 100,
+        "stars": 1,
+        "visitors": 1
+      },
+      "amazin-man": {
+        "clones": 108,
+        "stars": 0,
+        "visitors": 0
+      },
+      "botdocs": {
+        "clones": 73,
+        "stars": 1,
+        "visitors": 0
+      },
+      "cde-wallpaper": {
+        "clones": 50,
+        "stars": 2,
+        "visitors": 5
+      },
+      "digest-finetune": {
+        "clones": 37,
+        "stars": 0,
+        "visitors": 0
+      },
+      "dominion-tracker": {
+        "clones": 66,
+        "stars": 0,
+        "visitors": 0
+      },
+      "emotional-contamination": {
+        "clones": 35,
+        "stars": 0,
+        "visitors": 2
+      },
+      "fanoutd": {
+        "clones": 73,
+        "stars": 0,
+        "visitors": 0
+      },
+      "git-digest": {
+        "clones": 47,
+        "stars": 0,
+        "visitors": 2
+      },
+      "git-gallery": {
+        "clones": 57,
+        "stars": 0,
+        "visitors": 0
+      },
+      "go-course": {
+        "clones": 48,
+        "stars": 0,
+        "visitors": 0
+      },
+      "init-launcher": {
+        "clones": 67,
+        "stars": 1,
+        "visitors": 9
+      },
+      "jobSeeker": {
+        "clones": 38,
+        "stars": 0,
+        "visitors": 0
+      },
+      "karaoke-maker": {
+        "clones": 37,
+        "stars": 0,
+        "visitors": 9
+      },
+      "omniMux": {
+        "clones": 90,
+        "stars": 2,
+        "visitors": 7
+      },
+      "path-of-python": {
+        "clones": 41,
+        "stars": 1,
+        "visitors": 4
+      },
+      "socialChat": {
+        "clones": 68,
+        "stars": 0,
+        "visitors": 1
+      },
+      "turbolab": {
+        "clones": 100,
+        "stars": 0,
+        "visitors": 0
+      },
+      "vitalSVG": {
+        "clones": 44,
+        "stars": 0,
+        "visitors": 0
+      },
+      "zweek-lisp": {
+        "clones": 36,
+        "stars": 0,
+        "visitors": 0
+      }
+    }
+  },
+  "previous": {
     "date": "2026-11-26",
     "repos": {
       "Answerable": {
@@ -114,131 +239,6 @@
       },
       "vitalSVG": {
         "clones": 44,
-        "stars": 0,
-        "visitors": 0
-      },
-      "zweek-lisp": {
-        "clones": 35,
-        "stars": 0,
-        "visitors": 0
-      }
-    }
-  },
-  "previous": {
-    "date": "2026-11-25",
-    "repos": {
-      "Answerable": {
-        "clones": 51,
-        "stars": 0,
-        "visitors": 0
-      },
-      "Blopple": {
-        "clones": 40,
-        "stars": 2,
-        "visitors": 0
-      },
-      "Dependadocs": {
-        "clones": 72,
-        "stars": 0,
-        "visitors": 0
-      },
-      "Mood-Detector": {
-        "clones": 116,
-        "stars": 11,
-        "visitors": 28
-      },
-      "Research-Digest": {
-        "clones": 125,
-        "stars": 1,
-        "visitors": 1
-      },
-      "amazin-man": {
-        "clones": 115,
-        "stars": 0,
-        "visitors": 1
-      },
-      "botdocs": {
-        "clones": 67,
-        "stars": 1,
-        "visitors": 0
-      },
-      "cde-wallpaper": {
-        "clones": 44,
-        "stars": 2,
-        "visitors": 4
-      },
-      "digest-finetune": {
-        "clones": 33,
-        "stars": 0,
-        "visitors": 0
-      },
-      "dominion-tracker": {
-        "clones": 57,
-        "stars": 0,
-        "visitors": 0
-      },
-      "emotional-contamination": {
-        "clones": 34,
-        "stars": 0,
-        "visitors": 1
-      },
-      "fanoutd": {
-        "clones": 70,
-        "stars": 0,
-        "visitors": 0
-      },
-      "git-digest": {
-        "clones": 56,
-        "stars": 0,
-        "visitors": 2
-      },
-      "git-gallery": {
-        "clones": 57,
-        "stars": 0,
-        "visitors": 0
-      },
-      "go-course": {
-        "clones": 49,
-        "stars": 0,
-        "visitors": 0
-      },
-      "init-launcher": {
-        "clones": 61,
-        "stars": 1,
-        "visitors": 9
-      },
-      "jobSeeker": {
-        "clones": 36,
-        "stars": 0,
-        "visitors": 0
-      },
-      "karaoke-maker": {
-        "clones": 36,
-        "stars": 0,
-        "visitors": 7
-      },
-      "omniMux": {
-        "clones": 71,
-        "stars": 2,
-        "visitors": 6
-      },
-      "path-of-python": {
-        "clones": 35,
-        "stars": 1,
-        "visitors": 4
-      },
-      "socialChat": {
-        "clones": 55,
-        "stars": 0,
-        "visitors": 1
-      },
-      "turbolab": {
-        "clones": 88,
-        "stars": 0,
-        "visitors": 0
-      },
-      "vitalSVG": {
-        "clones": 39,
         "stars": 0,
         "visitors": 0
       },
